@@ -1,3 +1,4 @@
+import BannerImg from "@/components/BannerImg";
 import dbConnect from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 
@@ -8,7 +9,9 @@ const page = async({params}) => {
     console.log(service);
     
   return (
-    <div>page</div>
+    <div>
+      <BannerImg img={"/assets/images/checkout/checkout.png"}></BannerImg>
+      page</div>
   )
 }
 
