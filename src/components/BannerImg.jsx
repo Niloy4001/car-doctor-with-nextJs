@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const BannerImg = ({ img }) => {
+const BannerImg = ({ img,title }) => {
   return (
-    <div className="conatainer">
+    <div >
       <figure className="relative">
         <Image
           src={img}
@@ -13,13 +13,13 @@ const BannerImg = ({ img }) => {
           style={{ width: "100%", height: "300px" }}
         ></Image>
         <div className="absolute top-[45%] left-24">
-          <h1 className="text-white font-bold text-4xl">Service detailst</h1>
+          <h1 className="text-white font-bold text-4xl">{title}</h1>
         </div>
-        <div className="absolute bottom-0 mx-auto">
-          <p className="text-white">Home/ Service Details</p>
+        <div className=" flex justify-center -mt-12">
+          <p className="text-white bg-[#FF3811] btn border-none hover:bg-orange-700">Home/ {title}</p>
         </div>
       </figure>
-      BannerImg{/*  */}
+      
     </div>
   );
 };

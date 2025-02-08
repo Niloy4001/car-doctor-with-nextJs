@@ -10,7 +10,7 @@ const Services = async () => {
 //   console.log(data);
 
   return (
-    <div className="conatainer">
+    <div className="container">
       <Heading
         top={"Service"}
         middle={"Our Service Area"}

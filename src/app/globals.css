@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.conatainer{
+.container{
   width: 90%;
   margin: auto;
 }
