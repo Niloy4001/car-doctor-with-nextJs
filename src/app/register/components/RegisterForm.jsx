@@ -1,23 +1,19 @@
 "use client"
+// import { RegisterUser } from '@/app/action/auth/RegisterUser';
 import React, { useState } from 'react'
 
 const RegisterForm = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: ''
-      });
-    
-      const handleChange = (e) => {
-        setFormData({
-          ...formData,
-          [e.target.name]: e.target.value
-        });
-      };
+   
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form Data:', formData);
+        // const form = e.target.value;
+        const name = e.target.name.value
+        const email = e.target.email.value 
+        const password = e.target.password.value
+        const formData = {name,email,password}
+        console.log( formData);
+      //  RegisterUser(formData)
       };
   return (
     <div>
@@ -27,8 +23,8 @@ const RegisterForm = () => {
             <input 
               type="text" 
               name="name" 
-              value={formData.name} 
-              onChange={handleChange} 
+              // value={formData.name} 
+              // onChange={handleChange} 
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" 
               placeholder="Your name" 
               required
@@ -39,8 +35,8 @@ const RegisterForm = () => {
             <input 
               type="email" 
               name="email" 
-              value={formData.email} 
-              onChange={handleChange} 
+              // value={formData.email} 
+              // onChange={handleChange} 
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" 
               placeholder="Your email" 
               required
@@ -51,8 +47,8 @@ const RegisterForm = () => {
             <input 
               type="password" 
               name="password" 
-              value={formData.password} 
-              onChange={handleChange} 
+              // value={formData.password} 
+              // onChange={handleChange} 
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" 
               placeholder="Your password" 
               required
