@@ -4,10 +4,19 @@ import dbConnect from "@/lib/dbConnect";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+// import connectDB from "@/lib/db";
 
 const Services = async () => {
   const data = await dbConnect("services").find().toArray();
-//   console.log(data);
+  console.log(data);
+// const collection = (await connectDB()).collection
+
+
+// const db = await connectDB();
+// const collection = db.collection("services");
+// const data = await collection.find({}).toArray();
+// console.log(data);
+
 
   return (
     <div className="container">

@@ -1,19 +1,22 @@
 "use client"
+import { RegisterUser } from '@/app/action/auth/RegisterUser';
 // import { RegisterUser } from '@/app/action/auth/RegisterUser';
 import React, { useState } from 'react'
 
 const RegisterForm = () => {
    
     
-      const handleSubmit = (e) => {
+      const handleSubmit =async (e) => {
         e.preventDefault();
         // const form = e.target.value;
         const name = e.target.name.value
         const email = e.target.email.value 
         const password = e.target.password.value
-        const formData = {name,email,password}
-        console.log( formData);
-      //  RegisterUser(formData)
+      
+        // console.log( formData);
+      const result = await RegisterUser({name,email,password})
+      console.log( result);
+      
       };
   return (
     <div>
