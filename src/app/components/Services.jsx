@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Services = async () => {
   const data = await dbConnect("services").find().toArray();
-  console.log(data);
+  // console.log(data);
 // const collection = (await connectDB()).collection
 
 

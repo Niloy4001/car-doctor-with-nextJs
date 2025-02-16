@@ -24,7 +24,7 @@ export const authOptions = {
 
         const user = await LoginUser(credentials)
         console.log('from route.js');
-        console.log(user);
+        // console.log(user);
         console.log('from route.js2');
         
         

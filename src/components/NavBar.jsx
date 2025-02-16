@@ -1,8 +1,13 @@
+"use client"
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const NavBar = () => {
+  const session = useSession();
+  // console.log(session.status ,session.data);
+  
 
   const menu = (
     <>
@@ -60,7 +65,14 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {session.status == 'authenticated' ?
+           <><button onClick={()=>signOut()} className="btn">Log Out</button></>
+           :
+            <>
+            <Link href={"/login"} className="btn">LogIn</Link>
+            <Link href={"/register"} className="btn">Register</Link>
+            </>}
+          
         </div>
       </div>
     </div>

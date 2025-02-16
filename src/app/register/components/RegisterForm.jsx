@@ -2,6 +2,7 @@
 import { RegisterUser } from '@/app/action/auth/RegisterUser';
 // import { RegisterUser } from '@/app/action/auth/RegisterUser';
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 
 const RegisterForm = () => {
    
@@ -14,8 +15,13 @@ const RegisterForm = () => {
         const password = e.target.password.value
       
         // console.log( formData);
-      const result = await RegisterUser({name,email,password})
-      console.log( result);
+        try {
+          const result = await RegisterUser({name,email,password})
+          toast.success("Registration Successfull!")
+        } catch (error) {
+          toast.error(error.message)
+        }
+      // console.log( result);
       
       };
   return (

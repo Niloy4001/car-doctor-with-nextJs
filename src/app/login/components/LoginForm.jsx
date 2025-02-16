@@ -1,14 +1,27 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-await signIn("credentials", { email, password,callbackUrl:"/" });
-
+    const respose = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    if (respose.ok) {
+      router.push("/");
+      e.target.reset();
+      toast.success("Log In successfull");
+    } else {
+      toast.error("something is wrong , try again");
+    }
   };
   return (
     <div>
