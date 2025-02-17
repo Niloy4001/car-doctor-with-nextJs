@@ -1,5 +1,7 @@
 
 import LoginUser from "@/app/action/auth/LoginUser";
+import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 import NextAuth from "next-auth"
 
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -41,6 +43,14 @@ export const authOptions = {
           // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
         }
       }
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET
     })
   ],
   pages: {

@@ -2,6 +2,7 @@
 import login from '../../../public/assets/images/login/login.svg'
 import Image from 'next/image'
 import LoginForm from './components/LoginForm'
+import SocialLogin from '../components/SocialLogin'
 
 const page = () => {
    
@@ -17,7 +18,9 @@ const page = () => {
         
 
        <LoginForm></LoginForm>
-
+        <div>
+          <SocialLogin></SocialLogin>
+        </div>
         <p className="mt-4 text-center text-sm text-gray-600">
           Already have an account? <a href="/login" className="text-orange-500 font-semibold">Login</a>
         </p>
