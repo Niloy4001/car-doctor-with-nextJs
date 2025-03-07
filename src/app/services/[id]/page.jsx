@@ -3,12 +3,23 @@ import BannerImg from "@/components/BannerImg";
 import dbConnect from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = async ({ params }) => {
   const { id } = await params;
-    const service = await dbConnect("services").findOne({
-      _id: new ObjectId(id),
-    });
+    // const service = await dbConnect("services").findOne({
+    //   _id: new ObjectId(id),
+    // });
+
+    const res = await fetch(`http://localhost:3001/api/service/${id}`);
+    console.log(res);
+    
+    const service = await res.json();
+  // console.log(service);
+  
+
+  
+
 //   const db = await connectDB();
 //   const collection = db.collection("services");
 //   const service = await collection.findOne({ _id: new ObjectId(id) });
@@ -46,9 +57,9 @@ const page = async ({ params }) => {
             <p className="font-bold text-3xl text-[#151515] mb-7">
               Price : ${service.price}
             </p>
-            <button className="text-white bg-[#FF3811] hover:bg-orange-700 btn w-full">
+            <Link href={`http://localhost:3002/checkout/${service._id}`} className="text-white bg-[#FF3811] hover:bg-orange-700 btn w-full">
               Proceed Checkout
-            </button>
+            </Link>
           </div>
         </div>
       </div>
